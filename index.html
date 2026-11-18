@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mario Mastrangelo · The Wall</title>
+<meta name="description" content="Mario Mastrangelo: fifteen years in footwear across Clarks, Under Armour, Adidas, Columbia Sportswear, and Nike. Cost, sourcing, production, and the systems behind them.">
+<meta property="og:title" content="Mario Mastrangelo · The Wall">
+<meta property="og:description" content="Fifteen years in footwear, one box per role. A Rain Consulting spinoff.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#9ed6f3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ff6a1a'/%3E%3Ctext x='32' y='44' font-family='Arial Black,Arial' font-weight='900' font-size='30' text-anchor='middle' fill='%23111214'%3EMM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f7f9;--white:#fff;--ink:#111214;--soft:#3a3e45;--mute:#6d727a;--line:rgba(17,18,20,.09);
+  --orange:#ff6a1a;--orange-d:#e4560b;--sky:#9ed6f3;--sky-d:#3a9bd1;--sky-l:#eaf6fd;
+  --disp:'Archivo',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--white);overflow-x:clip}
+body{font-family:var(--disp);color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+section{scroll-margin-top:72px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.mark{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.mark-name{font-weight:900;font-stretch:125%;letter-spacing:.06em;font-size:18px}
+.mark-sub{font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:.1em;margin-top:5px;text-transform:uppercase}
+.top nav{display:flex;gap:30px}
+.top nav a{text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);transition:color .2s}
+.top nav a:hover{color:var(--orange)}
+.bag-btn{display:flex;align-items:center;gap:9px;padding:9px 15px;border-radius:999px;font-family:var(--mono);font-size:12px;background:var(--ink);color:#fff;transition:background .2s}
+.bag-btn:hover{background:#000}
+.bag-btn #bagCount{color:var(--orange)}
+.bag-btn.bump{animation:bump .5s ease}
+
+/* hero */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:110px 6vw 70px;position:relative;overflow:hidden;background:radial-gradient(55% 65% at 74% 42%,var(--sky-l),transparent 72%),var(--white)}
+#rain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.7}
+.hero-copy{position:relative;z-index:2}
+h1{font-weight:850;font-stretch:68%;font-size:clamp(54px,8.6vw,132px);line-height:.86;letter-spacing:-.005em;text-transform:uppercase;margin:20px 0 24px}
+h1 em{font-style:normal;color:var(--orange)}
+.lede{max-width:520px;font-size:18px;line-height:1.6;color:var(--soft)}
+.cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;text-decoration:none;font-weight:750;font-size:13px;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,border-color .2s,color .2s}
+.btn.primary{background:var(--orange);color:#fff}
+.btn.primary:hover{background:var(--orange-d)}
+.btn.ghost{border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+
+.pedestal-wrap{position:relative;display:flex;justify-content:center;z-index:2}
+.featured{position:relative;width:min(580px,100%);padding-top:70px;display:flex;flex-direction:column;align-items:center}
+.featured::before{content:"";position:absolute;top:-40px;left:50%;width:78%;height:92%;transform:translateX(-50%);clip-path:polygon(43% 0,57% 0,100% 100%,0 100%);background:linear-gradient(rgba(158,214,243,.45),rgba(158,214,243,0) 88%);filter:blur(8px);pointer-events:none}
+.feat-float{width:100%;position:relative;z-index:3;animation:float 6s ease-in-out infinite}
+.feat-shoe{transition:transform .5s ease}
+.featured:hover .feat-shoe,.featured:focus-visible .feat-shoe{transform:scale(1.04)}
+.feat-shoe svg{filter:drop-shadow(0 18px 18px rgba(17,18,20,.16))}
+.pedestal{width:64%;height:64px;margin-top:-44px;border-radius:50%;position:relative;z-index:2;background:radial-gradient(ellipse at 50% 40%,#ffffff,#e6ecf0 70%);box-shadow:inset 0 -2px 0 rgba(17,18,20,.06),0 0 80px rgba(158,214,243,.55)}
+.pedestal::after{content:"";position:absolute;left:0;right:0;top:32px;height:96px;z-index:-1;border-radius:0 0 50% 50%/0 0 26px 26px;background:linear-gradient(90deg,#dfe5ea,#ffffff 50%,#dfe5ea);box-shadow:0 30px 50px rgba(17,18,20,.12)}
+.feat-tag{position:absolute;top:30px;left:4%;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;background:var(--orange);color:#fff;border-radius:3px;z-index:4}
+.feat-name{margin-top:82px;text-align:center;position:relative;z-index:4}
+.feat-name b{display:block;font-weight:850;font-stretch:80%;font-size:26px;text-transform:uppercase;letter-spacing:.03em}
+.feat-name small{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase}
+.featured:hover .feat-name small{color:var(--orange)}
+
+/* ticker */
+.ticker{overflow:hidden;white-space:nowrap;padding:18px 0;background:var(--ink)}
+.ticker-track{display:inline-flex;animation:tick 48s linear infinite}
+.ticker-track span{font-weight:800;font-stretch:125%;font-size:14px;letter-spacing:.16em;color:#f2f2f2;padding:0 26px;display:inline-flex;align-items:center;gap:52px}
+.ticker-track span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
+
+/* wall */
+.wall-sec{padding:110px 4vw 70px;position:relative;background:var(--bg)}
+.wall-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;max-width:1320px;margin:0 auto 30px}
+h2{font-weight:850;font-stretch:68%;font-size:clamp(48px,6.4vw,92px);line-height:.88;text-transform:uppercase;margin-top:12px}
+.sec-note{max-width:460px;color:var(--soft);font-size:15px;line-height:1.6;margin-top:14px}
+.scene{max-width:1320px;margin:0 auto;position:relative}
+.wall{position:relative;border-radius:6px;padding:26px 30px 44px;background:repeating-linear-gradient(to bottom,#ffffff 0 46px,#e8edf1 46px 48px);box-shadow:0 0 0 1px var(--line),0 40px 80px rgba(17,18,20,.10)}
+.sign{display:flex;flex-direction:column;align-items:center;margin-bottom:6px}
+.sign span{font-weight:900;font-stretch:125%;letter-spacing:.55em;padding-left:.55em;font-size:13px;color:var(--ink)}
+.sign small{font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:.14em;margin-top:8px;text-transform:uppercase}
+.swipe{display:none}
+.bayrow{display:grid;grid-template-columns:repeat(6,1fr);margin-top:26px}
+.bay{grid-column:span var(--n);position:relative}
+.bay+.bay{box-shadow:inset 1px 0 0 var(--line)}
+.row{position:relative;display:grid;grid-template-columns:repeat(var(--n,3),1fr)}
+.bay-sign{text-align:center;padding:6px 8px 0;height:34px}
+.bay-sign span{display:inline-block;font-weight:850;font-stretch:115%;font-size:13px;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase;color:var(--ink);border-bottom:3px solid var(--orange);padding-bottom:6px}
+.bay-sign .short{display:none}
+
+.slot{position:relative;padding-top:30px;display:flex;flex-direction:column;align-items:center;cursor:pointer;outline:none;opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease;-webkit-tap-highlight-color:transparent}
+.slot.on{opacity:1;transform:none}
+.slot::before{content:"";position:absolute;top:0;left:50%;width:96%;height:230px;transform:translateX(-50%);clip-path:polygon(44% 0,56% 0,100% 100%,0 100%);background:linear-gradient(rgba(158,214,243,.38),rgba(158,214,243,0) 90%);pointer-events:none;transition:background .3s}
+.slot::after{content:"";position:absolute;top:0;left:50%;width:28px;height:7px;margin-left:-14px;border-radius:0 0 7px 7px;background:var(--ink)}
+.slot:hover::before,.slot:focus-visible::before{background:linear-gradient(rgba(158,214,243,.6),rgba(158,214,243,0) 90%)}
+.shoe{position:relative;width:86%;max-width:330px;transition:transform .35s ease;filter:drop-shadow(0 12px 10px rgba(17,18,20,.16))}
+.shoe svg{display:block;width:100%;height:auto}
+.slot:hover .shoe,.slot:focus-visible .shoe{transform:translateY(-10px) scale(1.04)}
+.ledge{width:100%;height:10px;margin-top:-14px;position:relative;background:linear-gradient(#ffffff,#e3eaef);border-top:2px solid var(--sky);box-shadow:0 10px 16px rgba(17,18,20,.10)}
+.tag{margin-top:16px;position:relative;background:var(--ink);color:#fff;padding:9px 13px 10px;border-radius:3px;width:min(180px,88%);text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.06em;box-shadow:0 8px 16px rgba(17,18,20,.16);transition:box-shadow .3s,transform .3s ease}
+.tag::before{content:"";position:absolute;top:-16px;left:50%;width:1px;height:16px;background:rgba(17,18,20,.35)}
+.tag::after{content:"";position:absolute;top:6px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#fff}
+.tag .tb{display:flex;justify-content:space-between;color:var(--orange);padding-top:6px}
+.tag b{display:block;font-family:var(--disp);font-weight:800;font-stretch:82%;font-size:14px;letter-spacing:.01em;text-transform:uppercase;margin-top:4px;line-height:1.05}
+.tag .q{color:var(--sky);opacity:0;transition:opacity .25s}
+.slot:hover .tag,.slot:focus-visible .tag{transform:translateY(-2px);box-shadow:0 12px 22px rgba(17,18,20,.22)}
+.slot:hover .tag .q,.slot:focus-visible .tag .q{opacity:1}
+.badge{display:none}
+.floor{height:60px}
+
+/* store */
+.store{padding:110px 6vw;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end}
+.store-copy p{font-size:19px;line-height:1.65;color:var(--soft);margin-top:20px;max-width:620px}
+.store-copy p:first-of-type{margin-top:28px}
+.links a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);text-decoration:none;border-bottom:1.5px solid var(--orange);padding-bottom:3px}
+
+/* checkout */
+.checkout{padding:110px 6vw 130px;display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;background:var(--bg)}
+.bag-list{list-style:none;margin-top:30px}
+.bag-list li{display:grid;grid-template-columns:96px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.bag-list .mini{background:var(--white);border-radius:8px;padding:8px;box-shadow:0 0 0 1px var(--line)}
+.bag-list b{display:block;font-weight:800;font-stretch:82%;font-size:18px;text-transform:uppercase}
+.bag-list small{font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+.bag-list .rm{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding:6px}
+.bag-list .rm:hover{color:var(--orange)}
+.empty{margin-top:30px;padding:28px;border:1.5px dashed rgba(17,18,20,.18);border-radius:10px;color:var(--soft);line-height:1.6;font-size:15px;background:var(--white)}
+.empty a{color:var(--orange)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+form .full{grid-column:1/-1}
+label{display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+input,textarea{font:inherit;font-family:var(--disp);font-size:16px;color:var(--ink);background:var(--white);border:1px solid rgba(17,18,20,.14);border-radius:8px;padding:14px 15px;letter-spacing:0;text-transform:none;transition:border-color .2s,box-shadow .2s}
+input:focus,textarea:focus{outline:none;border-color:var(--sky-d);box-shadow:0 0 0 3px var(--sky-l)}
+textarea{min-height:130px;resize:vertical}
+.place{grid-column:1/-1;margin-top:6px;padding:19px;border-radius:999px;background:var(--orange);color:#fff;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:13px;transition:background .2s}
+.place:hover{background:var(--orange-d)}
+.order{margin-top:30px;border:1px solid var(--sky);border-radius:12px;padding:24px;background:var(--sky-l)}
+.order[hidden]{display:none}
+.order h4{font-weight:850;font-stretch:80%;font-size:24px;text-transform:uppercase}
+.order pre{white-space:pre-wrap;font-family:var(--mono);font-size:12px;line-height:1.7;color:var(--ink);background:var(--white);border-radius:8px;padding:16px;margin:14px 0;max-height:260px;overflow:auto}
+.order .acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.order .acts .btn{padding:12px 18px;font-size:11px}
+.order .addr{font-family:var(--mono);font-size:12px;color:var(--sky-d)}
+footer{padding:34px 6vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#bfc3c8;background:var(--ink)}
+.tabbar{display:none}
+
+/* product drawer */
+.veil{position:fixed;inset:0;background:rgba(17,18,20,.35);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .35s;z-index:80}
+.veil.open{opacity:1;pointer-events:auto}
+.pdp{position:fixed;top:0;right:0;bottom:0;width:min(640px,100%);background:var(--white);z-index:90;transform:translateX(103%);transition:transform .45s cubic-bezier(.2,.8,.2,1);overflow-y:auto;overscroll-behavior:contain;box-shadow:-20px 0 60px rgba(17,18,20,.15)}
+.pdp.open{transform:none}
+.stage{height:380px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;perspective:900px;background:radial-gradient(55% 65% at 50% 38%,var(--glow,rgba(158,214,243,.35)),transparent 72%),var(--bg)}
+.stage::after{content:"";position:absolute;left:14%;right:14%;bottom:62px;height:24px;border-radius:50%;background:radial-gradient(rgba(17,18,20,.18),transparent 70%)}
+.stage .flt{width:84%;position:relative;z-index:2;animation:float 6s ease-in-out infinite}
+.stage .big{transform:rotateY(var(--py,0deg)) rotateX(var(--px,0deg));transition:transform .3s ease-out}
+.stage .big svg{width:100%;height:auto;display:block}
+.stage-ui{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:space-between;padding:0 18px;z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.stage-ui button{padding:8px 12px;border-radius:999px;background:var(--white);box-shadow:0 0 0 1px var(--line)}
+.stage-ui button:hover{background:var(--ink);color:#fff}
+.stage-ui .pos{align-self:center;color:var(--mute)}
+.x{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;z-index:4;background:var(--white);box-shadow:0 0 0 1px var(--line);font-size:18px;line-height:1}
+.x:hover{background:var(--ink);color:#fff}
+.pdp-body{padding:30px 36px 10px}
+.pdp-code{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+.pdp h3{font-weight:850;font-stretch:70%;font-size:54px;line-height:.9;text-transform:uppercase;margin:12px 0 10px}
+.pdp .cw{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mute);text-transform:uppercase}
+.pdp .role{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-top:6px}
+.pdp .story{font-size:17px;line-height:1.65;color:var(--soft);margin:22px 0 26px}
+.pdp h5{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin:26px 0 12px}
+.hl{list-style:none;border-top:1px solid var(--line)}
+.hl li{padding:13px 0 13px 22px;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink);position:relative;line-height:1.45}
+.hl li::before{content:"";position:absolute;left:2px;top:20px;width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.buy{position:relative;padding:14px 36px calc(22px + env(safe-area-inset-bottom));background:linear-gradient(rgba(255,255,255,0),#fff 18px);z-index:5}
+.buy h5{margin-top:14px}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.size{padding:15px 8px;border:1px solid rgba(17,18,20,.18);border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:all .2s}
+.size:hover{border-color:var(--ink)}
+.size[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:#fff}
+.add{width:100%;margin-top:12px;padding:19px;border-radius:999px;background:var(--orange);color:#fff;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:13px;transition:background .25s}
+.add:hover{background:var(--orange-d)}
+.add.in{background:var(--sky);color:var(--ink)}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,160%);opacity:0;visibility:hidden;background:var(--ink);color:#fff;padding:14px 20px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;z-index:120;transition:transform .4s ease,opacity .4s,visibility .4s;box-shadow:0 20px 40px rgba(17,18,20,.25)}
+.toast.show{transform:translate(-50%,0);opacity:1;visibility:visible}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes tick{to{transform:translateX(-50%)}}
+@keyframes bump{0%,100%{transform:scale(1)}40%{transform:scale(1.12)}}
+
+
+/* ===== streetwear pass ===== */
+#rain{display:none}
+.hero{background:var(--white)}
+.btn,.bag-btn,.place,.add,.size,.stage-ui button,.x,.chip,.feat-tag{border-radius:0}
+.btn{padding:17px 28px}
+.featured{padding-top:0}
+.featured::before{display:none}
+.feat-tile{position:relative;width:100%;aspect-ratio:1/1;background:#efefef;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.feat-tile .feat-float{width:88%}
+.pedestal{display:none}
+.feat-tag{top:18px;left:18px;background:var(--ink);color:#fff}
+.feat-name{margin-top:16px;align-self:stretch;display:flex;justify-content:space-between;align-items:baseline;text-align:left}
+.feat-name b{font-size:22px}
+.feat-name small{color:var(--orange)}
+.feat-shoe svg{filter:none}
+.wall{background:var(--white);box-shadow:none;padding:10px 0 30px}
+.sign{align-items:flex-start;padding:0 4px}
+.sign span{letter-spacing:.3em;padding-left:0}
+.bayrow{margin-top:44px}
+.bay+.bay{box-shadow:inset 1px 0 0 var(--line)}
+.bay-sign{text-align:left;padding:0 18px;height:auto;margin-bottom:6px}
+.bay-sign span{border:0;padding:0;letter-spacing:-.005em;font-stretch:68%;font-weight:900;font-size:30px}
+.bay-sign span::before{content:attr(data-i);font-family:var(--mono);font-weight:400;font-stretch:100%;font-size:11px;letter-spacing:.1em;color:var(--orange);vertical-align:top;margin-right:8px}
+.slot{padding:22px 0 0;align-items:stretch}
+.slot::before,.slot::after{display:none}
+.shoe{align-self:center;filter:drop-shadow(0 10px 8px rgba(17,18,20,.12))}
+.ledge{height:4px;margin-top:-10px;background:linear-gradient(90deg,rgba(17,18,20,.06),rgba(17,18,20,.12),rgba(17,18,20,.06));border:0;box-shadow:0 6px 10px rgba(17,18,20,.08)}
+.tag{background:none;color:var(--ink);box-shadow:none;width:auto;padding:14px 18px 6px;margin:0;border-radius:0}
+.tag::before,.tag::after{display:none}
+.tag .tb{color:var(--mute);padding-top:0}
+.tag b{font-size:17px;font-stretch:75%;font-weight:850;margin-top:5px;transition:color .2s}
+.tag .q{color:var(--orange)}
+.slot:hover .tag,.slot:focus-visible .tag{transform:none;box-shadow:none}
+.slot:hover .tag b,.slot:focus-visible .tag b{color:var(--orange)}
+.stage{background:#efefef}
+.stage::after{background:radial-gradient(rgba(17,18,20,.14),transparent 70%)}
+@media(max-width:700px){
+  .bay-sign{padding:0 20px;min-height:0;font-size:26px}
+  .sign{padding:0 20px;margin-bottom:0}
+  .sign .swipe{margin-top:0}
+  .bay+.bay{box-shadow:none}
+  .tag{padding:14px 13vw 6px 0}
+  .feat-name{padding:0 2px}
+}
+.bay-sign span{white-space:nowrap;font-size:clamp(20px,2.1vw,30px)}
+.sign span,.sign small#pairCount{display:none}
+.pdp{box-shadow:none}.pdp.open{box-shadow:-20px 0 60px rgba(17,18,20,.15)}
+.bayrow{grid-template-columns:repeat(5,minmax(0,1fr))}
+.bay{min-width:0}
+.bay-sign span{font-size:clamp(18px,1.75vw,28px)}
+.shoe{max-width:240px}
+.bay-sign{min-height:2.1em;font-size:clamp(18px,1.75vw,28px);display:flex;align-items:flex-end}
+.bay-sign span{white-space:normal;line-height:1;font-size:1em}
+
+/* ===== boxes + primary colors ===== */
+.shoe{max-width:230px;filter:none}
+.shoe svg .lid{transition:transform .35s ease}
+.slot:hover .shoe,.slot:focus-visible .shoe{transform:none}
+.slot:hover .shoe svg .lid,.slot:focus-visible .shoe svg .lid{transform:translateY(-12px)}
+.slot .shoe svg .body{transition:transform .35s ease}
+.ledge{margin-top:-6px}
+.feat-tile{background:var(--white)}
+.feat-tile .feat-float{width:78%}
+.featured:hover .feat-shoe{transform:none}
+.featured:hover .feat-shoe svg .lid,.featured:focus-visible .feat-shoe svg .lid{transform:translateY(-14px)}
+.feat-shoe svg .lid{transition:transform .4s ease}
+.stage{background:var(--sky-l)}
+.stage .big svg .lid{transform:translateY(-22px);transition:transform .5s ease .15s}
+.stage .flt{width:70%}
+.hero{background:var(--sky)}
+.hero .lede{color:#1d2a33}
+.btn.ghost{border-color:var(--ink)}
+.feat-name small{color:var(--ink)}
+.ticker{background:var(--orange)}
+.ticker-track span{color:var(--ink)}
+.ticker-track span::after{background:#fff}
+.wall-sec{background:var(--sky-l)}
+.wall{background:var(--white);padding:10px 0 30px;box-shadow:0 0 0 1px var(--line)}
+.store{max-width:none;background:var(--orange);color:var(--ink);padding-left:max(6vw,calc((100vw - 1320px)/2));padding-right:max(6vw,calc((100vw - 1320px)/2))}
+.store .eyebrow{color:#fff}
+.store-copy p{color:#1b1206}
+.store .links a{color:#fff;border-color:#fff}
+.checkout{background:var(--sky-l)}
+.checkout .eyebrow{color:var(--orange)}
+.x{position:fixed;top:16px;right:16px;z-index:95;box-shadow:0 0 0 1px var(--line),0 6px 16px rgba(17,18,20,.12)}
+.meta{display:grid;grid-template-columns:96px 1fr;margin-top:14px;border-top:1px solid var(--line)}
+.meta dt,.meta dd{padding:9px 0;border-bottom:1px solid var(--line);line-height:1.35}
+.meta dt{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding-top:11px}
+.meta dd{font-family:var(--disp);font-size:15px;font-weight:600;color:var(--ink);text-transform:none;letter-spacing:0}
+.pdp-code:empty{display:none}
+section{scroll-margin-top:63px}
+@media(max-width:700px){section{scroll-margin-top:57px}}
+@media(max-width:1200px){.bay-sign .full{display:none}.bay-sign .short{display:inline-block}}
+@media(max-width:1100px){.store,.checkout{grid-template-columns:1fr;gap:50px}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:100px}
+  .pedestal-wrap{order:-1}
+  .featured{width:min(420px,100%)}
+}
+@media(hover:none){
+  .tag .q{opacity:1}
+  .slot:active .shoe{transform:translateY(-8px) scale(1.03)}
+}
+@media(max-width:700px){
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+  .top{height:58px;padding:0 16px}
+  .top nav,.top .bag-btn{display:none}
+  .mark-name{font-size:17px}
+  .tabbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:60;padding:8px 6px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+  .tabbar a{display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);position:relative;padding:4px 0}
+  .tabbar svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}
+  .tabbar i{position:absolute;top:0;left:calc(50% + 6px);min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--orange);color:#fff;font-style:normal;font-size:9px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .tabbar i.zero{display:none}
+  .tabbar .bump{animation:bump .5s ease}
+  .toast{bottom:auto;top:70px;transform:translate(-50%,-30px);max-width:calc(100% - 32px);text-align:center}
+  .toast.show{transform:translate(-50%,0)}
+  .hero{padding:78px 20px 50px;gap:6px;min-height:auto}
+  .featured{width:min(340px,100%);padding-top:44px}
+  .featured::before{top:-20px}
+  .feat-tag{top:6px;left:0;font-size:10px}
+  .pedestal{height:46px;margin-top:-30px}
+  .pedestal::after{top:23px;height:58px}
+  .feat-name{margin-top:52px;margin-bottom:34px}
+  .feat-name b{font-size:21px}
+  h1{font-size:clamp(46px,14vw,64px);margin:14px 0 18px}
+  .lede{font-size:16px}
+  .cta .btn{flex:1;justify-content:center;padding:15px 16px}
+  .wall-sec{padding:76px 0 40px}
+  .wall-head{padding:0 20px;margin-bottom:22px}
+  .wall{border-radius:0;padding:20px 0 30px}
+  .sign .swipe{display:block;color:var(--sky-d)}
+  .bayrow{display:block;margin-top:0}
+  .bay{margin-top:26px}
+  .bay+.bay{box-shadow:none;border-top:1px solid var(--line);padding-top:18px}
+  .bay-sign .full{display:inline-block}.bay-sign .short{display:none}
+  .bay .row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:0 13vw}
+  .row::-webkit-scrollbar{display:none}
+  .slot{flex:0 0 74vw;scroll-snap-align:center}
+  .shoe{width:94%}
+  .tag{width:min(200px,78%)}
+  .tag b{font-size:15px}
+  .floor{height:30px}
+  .store,.checkout{padding:76px 20px;gap:40px}
+  .store-copy p{font-size:17px}
+  .bag-list li{grid-template-columns:76px 1fr auto;gap:12px}
+  form{grid-template-columns:1fr}
+  footer{padding:26px 20px;flex-direction:column}
+  .pdp{width:100%}
+  .stage{height:290px}
+  .stage::after{bottom:52px}
+  .stage .flt{width:92%}
+  .pdp-body{padding:22px 20px 6px}
+  .pdp h3{font-size:42px}
+  .pdp .story{font-size:16px;margin:16px 0 18px}
+  .buy{position:sticky;bottom:0;padding:2px 20px calc(16px + env(safe-area-inset-bottom))}
+  .buy h5{margin:12px 0 8px}
+  .size{padding:12px 4px;font-size:12px}
+  .add{padding:17px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.slot{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a href="#top" class="mark"><span class="mark-name">MASTRANGELO</span><span class="mark-sub">Footwear Supply Chain · Portland, OR</span></a>
+  <nav aria-label="Primary"><a href="#wall">The Wall</a><a href="#store">About</a><a href="#checkout">Contact</a></nav>
+  <button class="bag-btn" id="bagBtn" aria-label="Go to your bag"><svg width="15" height="16" viewBox="0 0 15 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 5h11l-1 10H3L2 5z"/><path d="M5 5V3.5a2.5 2.5 0 015 0V5"/></svg>Bag <span id="bagCount">0</span></button>
+</header>
+
+<section class="hero" id="top">
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <p class="eyebrow">A Rain Consulting spinoff</p>
+    <h1>Every pair<br>is a <em>chapter.</em></h1>
+    <p class="lede">I'm Mario Mastrangelo. Fifteen years in footwear across Clarks, Under Armour, Adidas, Nike, and Columbia, including running a Made in USA boot plant in Tennessee. Pull a box off the wall to see the work behind it.</p>
+    <div class="cta"><a class="btn primary" href="#wall">Shop the wall</a><a class="btn ghost" href="#checkout">Get in touch</a></div>
+
+  </div>
+  <div class="pedestal-wrap">
+    <button class="featured" id="featured" aria-label="View featured pair: Rain Consulting">
+      <span class="feat-tag">Featured drop</span>
+      <div class="feat-tile"><div class="feat-float"><div class="feat-shoe" id="featShoe"></div></div></div>
+      <div class="pedestal"></div>
+      <span class="feat-name"><b>Rain Consulting</b><small>View →</small></span>
+    </button>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+<section class="wall-sec" id="wall">
+  <div class="wall-head">
+    <div>
+      <p class="eyebrow">Aisle 01</p>
+      <h2>The Wall</h2>
+      <p class="sec-note">Each section is a company. Each box is a role I held there. Open one to see the work behind it.</p>
+    </div>
+  </div>
+  <div class="scene" id="scene">
+    <div class="wall" id="wallEl">
+      <div class="sign"><span>THE WALL</span><small id="pairCount">Career in order, left to right</small><small class="swipe">Swipe within a brand · Tap a box</small></div>
+      <div id="rows"></div>
+    </div>
+    <div class="floor"></div>
+  </div>
+</section>
+
+<section class="store" id="store">
+  <div class="store-copy">
+    <p class="eyebrow">About the store</p>
+    <h2>From cost sheet<br>to shelf.</h2>
+  </div>
+  <div class="store-copy">
+    <p>I started costing shoes at Clarks, scaled new manufacturing methods at Under Armour, and ran a Made in USA boot plant in Knoxville as Interim General Manager. Since then I've led supply chain, logistics, and planning programs at Adidas, Columbia Sportswear, and Nike.</p>
+    <p>That mix is the point. I know how a shoe should be made, what it should cost, and where it should be built. I also know the systems and business operations behind it, from PLM and planning tools to the processes that connect product, supply chain, and the rest of the business. Rain Consulting is where I bring all of that to brands.</p>
+    <p class="links"><a href="https://www.linkedin.com/in/Mastrangelo1" target="_blank" rel="noopener">LinkedIn ↗</a></p>
+  </div>
+</section>
+
+<section class="checkout" id="checkout">
+  <div>
+    <p class="eyebrow">Checkout</p>
+    <h2>Your bag</h2>
+    <div id="bagWrap"></div>
+  </div>
+  <div>
+    <p class="eyebrow">Place an order</p>
+    <h2>Let's talk</h2>
+    <form id="orderForm" novalidate>
+      <label>Name<input name="name" autocomplete="name" required></label>
+      <label>Company<input name="company" autocomplete="organization"></label>
+      <label class="full">Email<input name="email" type="email" autocomplete="email"></label>
+      <label class="full">What are you working on?<textarea name="note" placeholder="A cost target, a launch date, a factory that needs help..."></textarea></label>
+      <button class="place" type="submit">Place order</button>
+    </form>
+    <div class="order" id="order" hidden aria-live="polite">
+      <h4>Order ready</h4>
+      <pre id="orderText"></pre>
+      <div class="acts" id="orderActs"></div>
+    </div>
+  </div>
+</section>
+
+<footer><span>Mastrangelo · A <a href="https://rainconsultingpdx.com" style="color:#fff;text-decoration:none;border-bottom:1px solid var(--orange)">Rain Consulting</a> spinoff</span><span>Portland, Oregon · 2026</span></footer>
+
+<div class="veil" id="veil"></div>
+<aside class="pdp" id="pdp" role="dialog" aria-modal="true" aria-labelledby="pdpTitle" aria-hidden="true">
+  <button class="x" id="pdpClose" aria-label="Close">✕</button>
+  <div class="stage" id="stage">
+    <div class="flt"><div class="big" id="big"></div></div>
+    <div class="stage-ui"><button id="prev" aria-label="Previous pair">← Prev</button><span class="pos" id="pos"></span><button id="next" aria-label="Next pair">Next →</button></div>
+  </div>
+  <div class="pdp-body">
+    <div class="pdp-code" id="pdpCode"></div>
+    <h3 id="pdpTitle"></h3>
+    <div class="cw" id="pdpCw"></div>
+    <p class="story" id="pdpStory"></p>
+    <h5>Highlights</h5>
+    <ul class="hl" id="pdpHl"></ul>
+  </div>
+  <div class="buy">
+    <h5>Select engagement</h5>
+    <div class="sizes" id="sizes"></div>
+    <button class="add" id="add">Add to bag</button>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+<nav class="tabbar" aria-label="Mobile">
+  <a href="#top"><svg viewBox="0 0 20 20"><path d="M3 9l7-6 7 6v8H3z"/></svg>Home</a>
+  <a href="#wall"><svg viewBox="0 0 20 20"><path d="M2 5h16M2 10h16M2 15h16"/></svg>Wall</a>
+  <a href="#store"><svg viewBox="0 0 20 20"><circle cx="10" cy="7" r="3"/><path d="M4 17c1-4 11-4 12 0"/></svg>About</a>
+  <a href="#checkout" class="tb-bag"><svg viewBox="0 0 20 20"><path d="M4 7h12l-1 10H5z"/><path d="M7 7V5.5a3 3 0 016 0V7"/></svg>Bag<i id="bagCount2">0</i></a>
+</nav>
+
+<script>
+/* Contact details: fill these in to enable the email button at checkout. */
+const CONFIG = { email: 'rainconsultingpdx@gmail.com', linkedin: 'https://www.linkedin.com/in/Mastrangelo1' };
+
+/* ---------- shoe drawing ---------- */
+const TYPES = {
+  runner:{
+    upper:'M22,112 C16,92 18,70 30,58 C40,48 56,46 66,54 C74,60 84,64 94,60 L102,42 C106,36 116,36 118,44 L124,60 C150,70 192,86 230,94 C262,100 284,104 292,112 Z',
+    heel:'M22,112 C16,92 18,72 28,60 L50,70 C46,84 48,100 54,112 Z',
+    toe:'M206,112 C206,100 210,94 218,92 C248,98 278,102 292,112 Z',
+    accent:'M66,110 C100,90 146,80 198,84 L196,92 C150,90 110,99 78,113 Z',
+    lace:[[100,62],[186,88],5], collar:'M30,60 C40,50 56,48 64,56', sole:'runner'},
+  racer:{
+    upper:'M22,110 C16,94 18,74 28,62 C38,52 52,50 62,56 C72,62 84,64 94,60 L102,44 C106,38 116,38 118,46 L124,62 C160,76 210,90 252,98 C274,102 290,106 296,112 Z',
+    heel:'M22,110 C16,94 18,76 26,64 L46,72 C42,86 44,100 50,110 Z',
+    toe:'M222,112 C222,102 230,96 240,97 C264,100 284,105 296,112 Z',
+    accent:'M56,106 C106,88 170,84 238,94 L236,101 C176,94 118,98 64,112 Z',
+    lace:[[100,60],[192,92],5], collar:'M28,62 C38,52 52,50 60,56', sole:'racer'},
+  court:{
+    upper:'M22,112 C16,92 18,72 30,60 C40,50 56,48 66,56 C74,62 84,66 94,62 L102,44 C106,38 116,38 118,46 L124,62 C150,72 192,88 230,96 C262,102 284,104 294,110 Z',
+    heel:'M22,112 C16,92 18,72 28,62 L50,72 C46,86 48,100 54,112 Z',
+    toe:'M210,112 C210,102 216,96 226,95 C254,100 280,103 294,110 L294,112 Z',
+    accent:'M98,66 L156,80 L148,112 L92,112 C96,96 98,82 98,66 Z',
+    lace:[[102,64],[184,90],5], collar:'M30,62 C40,52 56,50 64,58', sole:'cup'},
+  hightop:{
+    upper:'M22,112 C14,86 14,46 22,26 C26,18 36,14 48,16 L86,22 L94,10 C98,4 108,4 110,12 L114,34 C122,56 150,74 196,86 C240,96 278,100 294,110 Z',
+    heel:'M22,112 C14,86 14,50 20,32 L44,40 C40,64 42,92 50,112 Z',
+    toe:'M214,112 C214,100 220,92 230,92 C258,98 282,102 294,110 L294,112 Z',
+    accent:'M24,52 L104,40 L108,55 L28,67 Z',
+    lace:[[100,30],[184,82],7], collar:'M24,24 C30,16 40,14 50,16', sole:'cup'},
+  chukka:{
+    upper:'M28,114 C22,92 22,62 30,42 L94,38 C98,52 108,64 132,74 C178,88 238,94 276,102 C288,106 292,110 292,114 Z',
+    heel:'M28,114 C24,96 24,74 28,60 L54,62 C52,82 54,100 60,114 Z',
+    seam:'M94,40 C104,64 120,88 128,114',
+    lace:[[100,48],[118,62],2], collar:'M30,42 L94,38', sole:'crepe', bow:true},
+  boot:{
+    upper:'M26,112 C20,84 20,40 26,18 L92,14 C96,30 104,46 120,60 C150,78 200,88 240,94 C270,98 286,104 292,112 Z',
+    heel:'M26,112 C22,92 22,70 26,56 L52,62 C50,82 52,100 58,112 Z',
+    toe:'M208,112 C210,100 218,94 230,94 C262,98 284,102 292,112 Z',
+    accent:'M24,17 L92,13 L94,27 L25,31 Z',
+    lace:[[98,26],[152,74],6], sole:'boot'},
+  oxford:{
+    upper:'M30,112 C24,96 24,78 32,68 C42,60 58,60 70,64 L98,70 L104,60 C110,55 122,55 128,62 L136,74 C170,90 222,100 266,103 C286,105 298,109 300,113 Z',
+    heel:'M30,112 C25,97 25,80 31,70 L50,72 C47,86 48,100 52,112 Z',
+    seam:'M230,100 C237,104 240,108 241,113',
+    lace:[[108,64],[130,76],3], collar:'M33,68 C43,62 58,62 69,65', sole:'dress',
+    extra:[{d:'M142,84 C182,98 232,102 286,106',stroke:'#ffffff',w:3.5,o:.55},{d:'M150,92 C190,102 236,106 280,109',stroke:'#ffffff',w:1.2,o:.25},{d:'M38,98 C41,86 50,77 62,76',stroke:'#ffffff',w:2,o:.35},{d:'M30,112 L300,113',stroke:'#4a4a52',w:1.5,o:1}]},
+  western:{
+    upper:'M40,112 C34,90 30,50 28,10 C42,16 52,4 62,8 C74,12 86,2 96,6 C98,40 104,62 118,74 C150,90 210,98 256,104 C280,107 296,110 302,114 Z',
+    toe:'M40,112 C38,98 40,86 46,80 C70,70 100,68 118,74 C150,90 210,98 256,104 C280,107 296,110 302,114 Z',
+    sole:'western',
+    extra:[{d:'M40,22 C56,42 72,42 88,18 M42,42 C58,62 76,62 92,36 M45,62 C60,80 78,80 96,56',stroke:'accent',w:1.6,o:.9},
+           {d:'M196,98 C214,92 236,96 252,104',stroke:'accent',w:1.6,o:.9},
+           {d:'M33,12 C31,-1 45,-1 43,12',stroke:'overlay',w:3,o:1}]},
+  trail:{
+    upper:'M22,112 C16,92 18,70 30,58 C40,48 56,46 66,54 C74,60 84,64 94,60 L102,42 C106,36 116,36 118,44 L124,60 C150,70 192,86 230,94 C262,100 284,104 292,112 Z',
+    heel:'M22,112 C16,92 18,72 28,60 L50,70 C46,84 48,100 54,112 Z',
+    toe:'M196,112 C194,98 202,88 216,88 C250,94 280,100 292,112 Z',
+    accent:'M126,64 L136,112 L144,112 L134,67 Z M152,72 L162,112 L170,112 L160,75 Z M178,80 L186,112 L194,112 L186,83 Z',
+    lace:[[100,62],[186,88],5], collar:'M30,60 C40,50 56,48 64,56', sole:'lug'}
+};
+function lugs(x0,x1,y0,y1,yl,step){
+  let d=`M${x0},${y0} L${x1},${y0} L${x1},${y1}`;
+  for(let x=x1-6;x>x0+step*.6;x-=step){d+=` L${x},${y1} L${x},${yl} L${(x-step*.55).toFixed(1)},${yl} L${(x-step*.55).toFixed(1)},${y1}`}
+  return d+` L${x0},${y1} Z`;
+}
+const SOLES = {
+  runner:{mid:'M16,110 C60,113 250,113 292,111 C297,122 290,134 272,134 L38,134 C22,134 12,124 16,110 Z',out:'M26,131 L280,131 C286,132 287,137 282,140 C278,143 272,144 264,144 L44,144 C34,144 27,139 26,131 Z',line:'M40,122 C110,124 200,124 270,121',dash:'0'},
+  racer:{mid:'M12,106 C80,110 230,112 298,111 C302,122 294,130 280,131 L70,140 C38,142 12,134 10,120 Z',out:'M12,126 C20,140 40,145 70,143 L280,134 C290,133 296,128 299,120 C300,130 294,139 282,140 L72,149 C44,151 20,144 12,126 Z',line:'M24,122 C90,126 200,124 284,119',dash:'0'},
+  cup:{mid:'M14,109 L294,109 L294,130 C294,134 290,136 286,136 L22,136 C17,136 14,133 14,128 Z',out:'M14,133 L294,133 L294,137 C294,140 291,142 288,142 L20,142 C16,142 14,140 14,137 Z',line:'M20,121 L288,121',dash:'2 3'},
+  crepe:{mid:'M20,113 L292,113 C295,124 291,133 280,133 L30,133 C22,133 18,126 20,113 Z',line:'M24,124 L288,124',dash:'1 4'},
+  lug:{mid:'M16,110 C80,113 240,113 294,111 L294,126 C294,128 292,130 290,130 L20,130 C18,130 16,128 16,126 Z',out:lugs(18,292,128,136,144,16)},
+  dress:{mid:'M26,110 L302,113 C304,121 298,128 286,131 L170,134 C138,133 112,126 94,120 L26,118 Z',heel:'M30,116 L90,116 L88,136 L34,136 Z',hl:'M32,124 L89,124 M33,130 L88,130'},
+  western:{mid:'M36,110 L304,114 C305,124 300,131 288,134 L170,138 C140,136 114,126 98,120 L36,116 Z',heel:'M40,114 L98,114 L88,140 L52,140 Z',hl:'M45,122 L96,122 M48,130 L93,130'},
+  boot:{mid:'M18,110 L294,111 L294,124 L18,124 Z',out:lugs(16,294,122,134,145,18),line:'M22,117 L290,117',dash:'2 3'}
+};
+function hex2rgb(h){h=h.replace('#','');return [0,2,4].map(i=>parseInt(h.substr(i,2),16))}
+function mix(h,t,a){const c=hex2rgb(h);return '#'+c.map(v=>Math.round(v+(t-v)*a).toString(16).padStart(2,'0')).join('')}
+const darken=(h,a)=>mix(h,0,a), lighten=(h,a)=>mix(h,255,a);
+function laceSVG(L,c,bow){
+  if(!L) return '';
+  const [[ax,ay],[bx,by],n]=L, dx=bx-ax, dy=by-ay, len=Math.hypot(dx,dy), ux=dx/len, uy=dy/len, px=uy, py=-ux;
+  let s=`<path d="M${ax},${ay} L${bx},${by}" stroke="${darken(c.upper,.2)}" stroke-width="9" stroke-linecap="round" opacity=".45"/>`;
+  for(let i=0;i<n;i++){
+    const k=n===1?0:i/(n-1), x=ax+dx*k, y=ay+dy*k;
+    s+=`<line x1="${(x-px*7+ux*3).toFixed(1)}" y1="${(y-py*7+uy*3).toFixed(1)}" x2="${(x+px*6-ux*3).toFixed(1)}" y2="${(y+py*6-uy*3).toFixed(1)}" stroke="${c.lace}" stroke-width="2.2" stroke-linecap="round"/>`;
+    s+=`<circle cx="${(x-px*5).toFixed(1)}" cy="${(y-py*5).toFixed(1)}" r="1.7" fill="${darken(c.upper,.5)}"/>`;
+  }
+  if(bow){s+=`<path d="M${ax+2},${ay-6} c-14,-10 -22,0 -10,4 M${ax+2},${ay-6} c6,-14 16,-8 8,0 M${ax},${ay-4} l-6,18 M${ax+4},${ay-4} l4,17" fill="none" stroke="${c.lace}" stroke-width="2.6" stroke-linecap="round"/>`}
+  return s;
+}
+
+/* ---------- shoe boxes ---------- */
+const BOXC={
+  'Clarks':{c:'#b8946a',ink:'#2b2116'},
+  'Under Armour':{c:'#222326',ink:'#f2f2f2'},
+  'Footwear Industries Tennessee':{c:'#5a2226',ink:'#f2e9e4'},
+  'Adidas':{c:'#cfd1d0',ink:'#1b1c1e'},
+  'Columbia Sportswear':{c:'#33402f',ink:'#eef0e8'},
+  'Nike':{c:'#2d3035',ink:'#f2f2f2'},
+  'Rain Consulting':{c:'#111214',ink:'#ffffff'}
+};
+function shade(h,a){return a<0?darken(h,-a):lighten(h,a)}
+function splitName(t,max){const w=t.split(' ');const L=[''];w.forEach(x=>{const cur=L[L.length-1];if((cur+' '+x).trim().length>max&&cur)L.push(x);else L[L.length-1]=(cur+' '+x).trim()});return L.slice(0,2)}
+function bars(seed,x0,x1,y,h){let r=seed,o='',x=x0;const rnd=()=>(r=(r*9301+49297)%233280)/233280;while(x<x1){const w=rnd()<.6?1:2.2;o+=`<rect x="${x.toFixed(1)}" y="${y}" width="${w}" height="${h}"/>`;x+=w+(rnd()<.5?1.2:2.4)}return o}
+let boxN=0;
+function shoeSVG(p){
+  const B=BOXC[p.brand]||BOXC['Rain Consulting'], c=B.c, id='b'+(boxN++);
+  const seed=[...(p.brand+p.name)].reduce((a,ch)=>a+ch.charCodeAt(0),0);
+  const L=splitName((p.name||p.brand).toUpperCase(),15);
+  const brand=(p.brand||'').toUpperCase();
+  return `<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs><linearGradient id="${id}f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#000" stop-opacity=".08"/></linearGradient></defs>
+  <ellipse cx="150" cy="186" rx="140" ry="7" fill="#111214" opacity=".10"/>
+  <g class="body">
+    <polygon points="250,92 290,64 290,154 250,182" fill="${shade(c,-.28)}"/>
+    <rect x="10" y="92" width="240" height="90" fill="${c}"/><rect x="10" y="92" width="240" height="90" fill="url(#${id}f)"/>
+    <rect x="142" y="104" width="98" height="66" fill="#f6f5f1"/>
+    <text x="150" y="117" font-family="JetBrains Mono,monospace" font-size="6.5" letter-spacing=".6" fill="#6d727a">${esc(p.years||'Since 2019')}</text>
+    ${L.map((t,k)=>`<text x="150" y="${130+k*10}" font-family="Archivo,sans-serif" font-weight="800" font-size="8.6" fill="#111214"${t.length>13?' textLength="82" lengthAdjust="spacingAndGlyphs"':''}>${esc(t)}</text>`).join('')}
+    <g fill="#111214">${bars(seed,150,232,152,12)}</g>
+  </g>
+  <g class="lid">
+    <polygon points="6,52 254,52 294,22 46,22" fill="${shade(c,.14)}"/>
+    <polygon points="254,52 294,22 294,64 254,94" fill="${shade(c,-.18)}"/>
+    <rect x="6" y="52" width="248" height="42" fill="${shade(c,.04)}"/>
+    <text x="20" y="78" font-family="Archivo,sans-serif" font-weight="900" font-stretch="110%" font-size="12" letter-spacing="2.6" fill="${B.ink}" opacity=".92"${brand.length>16&&!brand.startsWith('FOOTWEAR IND')?' textLength="200" lengthAdjust="spacingAndGlyphs"':''}>${esc(brand.startsWith('FOOTWEAR IND')?'FOOTWEAR IND. TN':brand)}</text>
+  </g></svg>`;
+}
+/* ---------- catalog ---------- */
+const FEATURED = {
+  name:'Rain Consulting', brand:'Rain Consulting', sub:'Founder', type:'racer', role:'Founder · Portland, Oregon',
+  colorway:'Black box / White label',
+  pal:{upper:'#111214',overlay:'#111214',accent:'#111214',mid:'#111214',sole:'#111214',lace:'#111214',lining:'#111214'},
+  story:'The consultancy where I bring the whole wall to work for brands: cost, sourcing, production, and program leadership, plus the supply chain and business operations systems that run them. Consulting engagements since 2019 include Adidas, Columbia Sportswear, and Nike.',
+  hl:['Product cost and margin strategy','Sourcing and factory partnerships','Supply chain and business operations systems','Program leadership from brief to shelf']
+};
+const P_CLARKS_A={upper:'#c49a6c',overlay:'#b28659',accent:'#b28659',mid:'#ddae6a',sole:'#c48a3e',lace:'#4a3020',lining:'#e8dcc6'};
+const BAYS = [
+  {brand:'Clarks', row:0, pairs:[
+    {name:'Cost Engineering', title:'Cost Engineer', years:'2012 to 2014', type:'Full time', disc:'Cost engineering', where:'Boston', kind:'chukka', colorway:'Sand Suede / Gum Crepe', pal:P_CLARKS_A,
+     story:'Seasonal costing across multiple categories. I negotiated with factories and partnered with design, development, and sourcing to hit target margins.',
+     hl:['Cost teardowns with design and development','FOB negotiation with factories and country offices','Material and construction tradeoffs that protected quality']},
+    {name:'Supply Chain Programs', title:'Project Manager, Supply Chain and Product Ops', years:'2014 to 2016', type:'Full time', disc:'Supply chain and product operations', where:'Boston', kind:'chukka', colorway:'Charcoal Suede / Natural Crepe',
+     pal:{upper:'#4a4844',overlay:'#3c3a37',accent:'#3c3a37',mid:'#e6d3b0',sole:'#d2b98c',lace:'#1e1d1b',lining:'#cfc6b6'},
+     story:'Led global efficiency initiatives across supply chain and product operations that improved delivery and took cost and time out of the business.',
+     hl:['On time, in full delivery improvement','Salesman sample process redesign','Label supply restructured with Avery Dennison']}]},
+  {brand:'Under Armour', row:0, pairs:[
+    {name:'Advanced Manufacturing', title:'Advanced Manufacturing Manager', years:'2016 to 2017', type:'Full time', disc:'Innovation and advanced manufacturing', where:'Baltimore', kind:'runner', colorway:'',
+     pal:{upper:'#1c1d21',overlay:'#2c2e35',accent:'#e2392b',mid:'#f2f0ec',sole:'#1a1a1a',lace:'#e9e9e9',lining:'#e2392b'},
+     story:'Scaled footwear innovation into Tier 1 factories, from new manufacturing technology to rapid prototyping at the innovation center.',
+     hl:['Automation and R&D transfer into Tier 1 factories','Robotic cementing and direct injection','US supply base built out for speed to market','Made in USA product with the US Department of Defense']},
+    {name:'Manufacturing R&D, Vietnam', title:'Supply base research, Vietnam', years:'2016 to 2017', type:'Full time', disc:'Manufacturing research', where:'Vietnam', kind:'runner', colorway:'',
+     pal:{upper:'#1c1d21',overlay:'#2c2e35',accent:'#e2392b',mid:'#f2f0ec',sole:'#1a1a1a',lace:'#e9e9e9',lining:'#e2392b'},
+     story:'R&D on the ground in Vietnam to understand how footwear is really made across the supply base, from Tier 1 assembly factories to the Tier 2 and Tier 3 suppliers behind their materials and components.',
+     hl:['Tier 1 assembly methods across product categories','Tier 2 and Tier 3 material and component processes','Best practices, capability gaps, and cost drivers']},
+    {name:'Innovation Centers, Taiwan', title:'Innovation center partnership, Taiwan', years:'2016 to 2017', type:'Full time', disc:'Advanced manufacturing', where:'Taiwan', kind:'runner', colorway:'',
+     pal:{upper:'#1c1d21',overlay:'#2c2e35',accent:'#e2392b',mid:'#f2f0ec',sole:'#1a1a1a',lace:'#e9e9e9',lining:'#e2392b'},
+     story:'Partnered with factory innovation centers in Taiwan on advanced manufacturing developments for bottoming processes and technology.',
+     hl:['Bottoming process development','Direct injection and automation technology','Development to production readiness with Tier 1 partners']}]},
+  {brand:'Footwear Industries Tennessee', short:'Footwear Industries TN', row:1, pairs:[
+    {name:'General Manager', title:'Interim General Manager', years:'2018 to 2019', type:'Contract', disc:'Plant operations', where:'Knoxville', kind:'boot', colorway:'Saddle Leather / Black Lug · Made in USA',
+     pal:{upper:'#6e4329',overlay:'#5a351e',accent:'#2e1d12',mid:'#2a221c',sole:'#141210',lace:'#c9a46a',lining:'#c9a46a'},
+     story:'I ran the whole plant, from the office to the production floor, building footwear made in the USA.',
+     hl:['Full plant leadership, office to floor','Line balancing, lean improvements, and quality','Material procurement for a Made in USA product launch']},
+    {name:'Western Boots, China', title:'Factory Partnership, as General Manager', years:'2018 to 2019', type:'Contract', disc:'Factory partnership', where:'Tianjin, China', kind:'western', colorway:'Cognac / Gold Stitch',
+     pal:{upper:'#8a5631',overlay:'#6a3d1f',accent:'#e3c48a',mid:'#3a2414',sole:'#2a1a10',lace:'#e3c48a',lining:'#e3c48a'},
+     story:'A trip to the factory group\'s plant in Tianjin, where Western boots were in production, to study best practices and set up knowledge transfer with Knoxville.',
+     hl:['Best practice study across the factory group','Knowledge transfer and employee exchange','Western boot construction']},
+    {name:'Formal Footwear, China', title:'Factory Partnership, as General Manager', years:'2018 to 2019', type:'Contract', disc:'Factory partnership', where:'Tianjin, China', kind:'oxford', colorway:'Patent Black / Burgundy Lining',
+     pal:{upper:'#1b1b20',overlay:'#24242a',accent:'#9a2a3a',mid:'#26201b',sole:'#3a2a1d',lace:'#3a3a42',lining:'#9a2a3a'},
+     story:'The same Tianjin plant built patent leather tuxedo shoes, where the finish is the product.',
+     hl:['Formal footwear construction','Finish and quality standards','Lessons carried back to the domestic line']}]},
+  {brand:'Adidas', row:1, pairs:[
+    {name:'Supply Chain Transformation', title:'Project Manager, Supply Chain', years:'2019 to 2020', type:'Contract', disc:'Supply planning', where:'Portland', kind:'court', colorway:'Chalk / Collegiate Navy / Gum',
+     pal:{upper:'#f1eee8',overlay:'#1f2b4d',accent:'#1f2b4d',mid:'#f1eee8',sole:'#b9894a',lace:'#f1eee8',lining:'#1f2b4d'},
+     story:'Directed a program of workstreams in North American supply planning to reduce excess inventory, improve on time availability, and strengthen data integrity.',
+     hl:['Program and workstream leadership','Process redesign and change management','Reporting moved to MicroStrategy']}]},
+  {brand:'Columbia Sportswear', row:1, pairs:[
+    {name:'Logistics Strategy', title:'Logistics Strategy and Digitization', years:'2021', type:'Consultant', disc:'Logistics and digitization', where:'Portland', kind:'trail', colorway:'Moss / Bark / Ember',
+     pal:{upper:'#4f5a3e',overlay:'#343a2a',accent:'#e07a2c',mid:'#d9d4c6',sole:'#1d1f1a',lace:'#e07a2c',lining:'#e07a2c'},
+     story:'Led workshops with the logistics team to document how work really flowed and build a future state digitization strategy.',
+     hl:['Current state process documentation','Future state digitization strategy','System evaluation and software selection']}]},
+  {brand:'Nike', row:2, pairs:[
+    {name:'PLM Costing', title:'Program Manager, PCX Costing on Centric PLM', years:'2022 to 2023', type:'Consultant', disc:'Program management · Centric PLM', where:'Beaverton', kind:'hightop', colorway:'Summit White / Volt',
+     pal:{upper:'#f4f2ee',overlay:'#dcd8d0',accent:'#c8f03a',mid:'#f7f6f2',sole:'#2b2b2b',lace:'#f4f2ee',lining:'#c8f03a'},
+     story:'Program manager bridging Nike Cost Engineering and the Digital Product Creation tech team to build costing enhancements in PCX, Nike\'s Centric PLM system.',
+     hl:['Bill of Labor aligned with the Bill of Materials','Tier 1 suppliers in Italy and Brazil onboarded to the Nike Costing Framework','UAT and training with Global Costing and Product Creation Centers']},
+    {name:'Supply Planning Systems', title:'Program Manager, SAP IBP at Air MI', years:'2023', type:'Consultant', disc:'Program management · Supply planning systems', where:'Beaverton', kind:'hightop', colorway:'Black / Volt',
+     pal:{upper:'#1d1e22',overlay:'#2c2d33',accent:'#c8f03a',mid:'#f2f1ec',sole:'#1d1e22',lace:'#c8f03a',lining:'#c8f03a'},
+     story:'Program manager for the SAP IBP implementation at Air Manufacturing Innovation, improving visibility and planning across the airbag supply chain.',
+     hl:['Requirements and user stories','Structured UAT cycles','Training and SOPs for supply planning']},
+    {name:'HR Systems', title:'Program Manager, Workday', years:'2025', type:'Consultant', disc:'Program management · Enterprise systems', where:'Beaverton', kind:'hightop', colorway:'Wolf Grey / Photo Blue',
+     pal:{upper:'#a7abb2',overlay:'#7d828a',accent:'#3a7bd5',mid:'#eef0f2',sole:'#3a7bd5',lace:'#eef0f2',lining:'#3a7bd5'},
+     story:'Program manager for Workday enhancements that delivered new functionality for annual goal setting and performance management.',
+     hl:['Enterprise HR system enhancements','Roadmaps and leadership updates','UAT and rollout']},
+    {name:'Sales Planning', title:'Sales Planning', years:'2026', type:'Contract', disc:'Sales planning', where:'Beaverton', kind:'hightop', colorway:'White / University Red',
+     pal:{upper:'#f4f2ee',overlay:'#c8102e',accent:'#c8102e',mid:'#f7f6f2',sole:'#2b2b2b',lace:'#f4f2ee',lining:'#c8102e'},
+     story:'On the sales planning team, close to how demand turns into what factories build.',
+     hl:['Sales planning','Demand and supply alignment','Cross functional planning']}]}
+];
+BAYS.forEach(b=>b.pairs.forEach(p=>{p.brand=b.brand;p.type_=p.type;p.type=p.kind;p.role=`${p.title} · ${p.type_} · ${p.years} · ${p.where}`;p.sub=p.years;p.colorway=({'Clarks':'Kraft box','Under Armour':'Charcoal box','Footwear Industries Tennessee':'Oxblood box','Adidas':'Stone box','Columbia Sportswear':'Forest box','Nike':'Slate box'})[p.brand]+' · Printed label'}));
+const PAIRS = BAYS.flatMap(b=>b.pairs.map(p=>({...p,brand:b.brand})));
+const ALL=[FEATURED,...PAIRS];
+const MODES=['Full time','Contract','Advisory'];
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+/* ---------- render ---------- */
+$('#featShoe').innerHTML=shoeSVG(FEATURED);
+const tick=['Clarks','Under Armour','Footwear Industries Tennessee','Adidas','Columbia Sportswear','Nike','Rain Consulting','Portland, Oregon'];
+$('#ticker').innerHTML=[...tick,...tick].map(t=>`<span>${esc(t.toUpperCase())}</span>`).join('');
+
+$('#rows').innerHTML=[0,1,2].map(r=>`<div class="bayrow">${BAYS.filter(b=>b.row===r).map(b=>`
+  <div class="bay" style="--n:${b.pairs.length}">
+    <div class="bay-sign"><span class="full" data-i="${String(BAYS.indexOf(b)+1).padStart(2,'0')}">${esc(b.brand)}</span><span class="short" data-i="${String(BAYS.indexOf(b)+1).padStart(2,'0')}">${esc(b.short||b.brand)}</span></div>
+    <div class="row">${b.pairs.map(p=>{const q=PAIRS.find(x=>x.brand===b.brand&&x.name===p.name);return `
+      <div class="slot" tabindex="0" role="button" data-i="${ALL.indexOf(q)}" aria-label="${esc(b.brand)}, ${esc(p.name)}. View details">
+        <div class="shoe">${shoeSVG(p)}</div>
+        <div class="ledge"></div>
+        <div class="tag"><div class="tb"><span>${esc(p.sub.toUpperCase())}</span><span class="q">VIEW +</span></div><b>${esc(p.name)}</b></div>
+      </div>`}).join('')}</div>
+  </div>`).join('')}</div>`).join('');
+const slots=[...document.querySelectorAll('.slot')];
+
+/* ---------- lights on ---------- */
+const lightAll=()=>slots.forEach((s,i)=>setTimeout(()=>s.classList.add('on'),i*70));
+if('IntersectionObserver' in window){const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){lightAll();o.disconnect()}},{threshold:.05});o.observe($('#wallEl'))}else lightAll();
+setTimeout(()=>slots.forEach(s=>s.classList.add('on')),4000);
+
+/* ---------- product drawer ---------- */
+let cur=0, mode='Contract', lastFocus=null;
+const pdp=$('#pdp'), veil=$('#veil');
+function fill(i){
+  cur=(i+ALL.length)%ALL.length; const p=ALL[cur];
+  $('#big').innerHTML=shoeSVG(p);
+  
+  $('#pdpCode').textContent='';
+  $('#pdpTitle').textContent=p.name;
+  const rows=p.title?[['Company',p.brand],['Role',p.title],['Focus',p.disc],['Type',p.type_],['Dates',p.years],['Location',p.where]]:[['Company',p.brand],['Role','Founder'],['Dates','Since 2019'],['Location','Portland, Oregon']];
+  $('#pdpCw').innerHTML=`<dl class="meta">${rows.filter(r=>r[1]).map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>`;
+  
+  $('#pdpStory').textContent=p.story;
+  $('#pdpHl').innerHTML=p.hl.map(h=>`<li>${esc(h)}</li>`).join('');
+  $('#pos').textContent=`${cur+1} / ${ALL.length}`;
+  renderSizes(); syncAdd(); pdp.scrollTop=0;
+}
+function hexA(h,a){const [r,g,b]=hex2rgb(h);return `rgba(${r},${g},${b},${a})`}
+function renderSizes(){$('#sizes').innerHTML=MODES.map(m=>`<button class="size" aria-pressed="${m===mode}">${m}</button>`).join('')}
+$('#sizes').addEventListener('click',e=>{const b=e.target.closest('.size');if(!b)return;mode=b.textContent;renderSizes();syncAdd()});
+function open(i){lastFocus=document.activeElement;fill(i);pdp.classList.add('open');veil.classList.add('open');pdp.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>$('#pdpClose').focus(),60)}
+function close(){pdp.classList.remove('open');veil.classList.remove('open');pdp.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
+$('#rows').addEventListener('click',e=>{const s=e.target.closest('.slot');if(s)open(+s.dataset.i)});
+$('#rows').addEventListener('keydown',e=>{const s=e.target.closest('.slot');if(s&&(e.key==='Enter'||e.key===' ')){e.preventDefault();open(+s.dataset.i)}});
+$('#featured').addEventListener('click',()=>open(0));
+$('#pdpClose').addEventListener('click',close); veil.addEventListener('click',close);
+$('#prev').addEventListener('click',()=>fill(cur-1)); $('#next').addEventListener('click',()=>fill(cur+1));
+document.addEventListener('keydown',e=>{if(!pdp.classList.contains('open'))return;
+  if(e.key==='Escape')close(); if(e.key==='ArrowRight')fill(cur+1); if(e.key==='ArrowLeft')fill(cur-1)});
+const stage=$('#stage'), big=$('#big');
+stage.addEventListener('mousemove',e=>{const r=stage.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  big.style.setProperty('--py',(x*16).toFixed(1)+'deg');big.style.setProperty('--px',(-y*8).toFixed(1)+'deg')});
+let sx=null,sy=0;
+stage.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+stage.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;sx=null;
+  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5)fill(cur+(dx<0?1:-1))},{passive:true});
+stage.addEventListener('mouseleave',()=>{big.style.setProperty('--py','0deg');big.style.setProperty('--px','0deg')});
+
+/* ---------- bag ---------- */
+let bag=[];
+try{bag=JSON.parse(localStorage.getItem('mm-bag')||'[]').filter(b=>ALL.some(p=>p.brand+'|'+p.name===b.id))}catch(e){bag=[]}
+function save(){try{localStorage.setItem('mm-bag',JSON.stringify(bag))}catch(e){}}
+const pid=p=>p.brand+'|'+p.name;
+function inBag(){return bag.find(b=>b.id===pid(ALL[cur]))}
+function syncAdd(){const b=inBag(),a=$('#add');
+  if(b&&b.mode===mode){a.textContent='In your bag ✓';a.classList.add('in')}
+  else if(b){a.textContent='Update to '+mode;a.classList.remove('in')}
+  else{a.textContent='Add to bag · '+mode;a.classList.remove('in')}}
+$('#add').addEventListener('click',()=>{
+  const p=ALL[cur], b=inBag();
+  if(b&&b.mode===mode){close();$('#checkout').scrollIntoView({behavior:'smooth'});return}
+  if(b)b.mode=mode;else bag.push({id:pid(p),mode});
+  save();renderBag();syncAdd();toast(`${p.name} added · ${mode}`);
+  document.querySelectorAll('#bagBtn,.tb-bag').forEach(bb=>{bb.classList.remove('bump');void bb.offsetWidth;bb.classList.add('bump')});
+});
+function renderBag(){
+  $('#bagCount').textContent=bag.length;const c2=$('#bagCount2');c2.textContent=bag.length;c2.classList.toggle('zero',!bag.length);
+  if(!bag.length){$('#bagWrap').innerHTML=`<div class="empty">Your bag is empty. Pick pairs off <a href="#wall">the wall</a> to tell me what you need, or just say hello with the form.</div>`;return}
+  $('#bagWrap').innerHTML=`<ul class="bag-list">${bag.map((b,i)=>{const p=ALL.find(x=>pid(x)===b.id);
+    return `<li><div class="mini">${shoeSVG(p)}</div><div><b>${esc(p.name)}</b><small>${esc(p.brand)} · ${esc(b.mode)}</small></div><button class="rm" data-rm="${i}">Remove</button></li>`}).join('')}</ul>`;
+}
+$('#bagWrap').addEventListener('click',e=>{const r=e.target.closest('[data-rm]');if(!r)return;bag.splice(+r.dataset.rm,1);save();renderBag()});
+document.querySelectorAll('.tabbar a').forEach(a=>a.addEventListener('click',()=>{if(pdp.classList.contains('open'))close()}));
+$('#bagBtn').addEventListener('click',()=>{close();$('#checkout').scrollIntoView({behavior:'smooth'})});
+renderBag();
+
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200)}
+
+/* ---------- checkout ---------- */
+$('#orderForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=new FormData(e.target), name=(f.get('name')||'').trim(), co=(f.get('company')||'').trim(), em=(f.get('email')||'').trim(), note=(f.get('note')||'').trim();
+  if(!name){e.target.name.focus();toast('Add your name first');return}
+  let msg=`Hi Mario,\n\nThis is ${name}${co?' from '+co:''}.\n`;
+  if(bag.length) msg+=`\nBoxes in my bag:\n`+bag.map(b=>{const p=ALL.find(x=>pid(x)===b.id);return `· ${p.brand}, ${p.name} (${b.mode})`}).join('\n')+'\n';
+  if(note) msg+=`\n${note}\n`;
+  if(em) msg+=`\nYou can reach me at ${em}.`;
+  $('#orderText').textContent=msg;
+  let acts=`<button class="btn primary" id="copyMsg">Copy message</button>`;
+  if(CONFIG.email){acts+=`<a class="btn ghost" href="mailto:${encodeURIComponent(CONFIG.email)}?subject=${encodeURIComponent('Order from the wall: '+name)}&body=${encodeURIComponent(msg)}">Open in email</a><span class="addr">${esc(CONFIG.email)}</span>`}
+  if(CONFIG.linkedin){acts+=`<a class="btn ghost" href="${esc(CONFIG.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`}
+  $('#orderActs').innerHTML=acts;
+  $('#order').hidden=false;
+  $('#copyMsg').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(msg);toast('Message copied')}catch(err){toast('Select the text to copy')}});
+});
+
+/* ---------- rain ---------- */
+(function(){
+  const cv=$('#rain'), ctx=cv.getContext('2d'); if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  let w,h,drops=[],run=true,dpr=Math.min(devicePixelRatio||1,2);
+  function size(){w=cv.offsetWidth;h=cv.offsetHeight;cv.width=w*dpr;cv.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    drops=Array.from({length:Math.round(w/14)},()=>({x:Math.random()*w,y:Math.random()*h,l:8+Math.random()*22,v:4+Math.random()*7,a:.05+Math.random()*.22}))}
+  size();addEventListener('resize',size);
+  new IntersectionObserver(es=>{run=es[0].isIntersecting;if(run)loop()}).observe(cv);
+  function loop(){if(!run)return;ctx.clearRect(0,0,w,h);ctx.lineWidth=1;
+    for(const d of drops){ctx.strokeStyle=`rgba(58,155,209,${d.a*.7})`;ctx.beginPath();ctx.moveTo(d.x,d.y);ctx.lineTo(d.x-d.l*.12,d.y+d.l);ctx.stroke();
+      d.y+=d.v;d.x-=d.v*.12;if(d.y>h){d.y=-d.l;d.x=Math.random()*w*1.1}}
+    requestAnimationFrame(loop)}
+})();
+</script>
+</body>
+</html>
