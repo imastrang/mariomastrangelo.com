@@ -284,6 +284,34 @@ footer{padding:34px 6vw;display:flex;justify-content:space-between;flex-wrap:wra
 .pdp-code:empty{display:none}
 section{scroll-margin-top:63px}
 @media(max-width:700px){section{scroll-margin-top:57px}}
+
+/* ===== one screen per section (desktop and tablet) ===== */
+@media(min-width:701px){
+  :root{--hdr:64px;--pad:clamp(28px,6vh,72px)}
+  .hero{min-height:100vh;min-height:100svh;padding:calc(var(--hdr) + var(--pad)) 6vw var(--pad);align-items:center;align-content:center}
+  .hero h1{font-size:clamp(44px,min(8.2vw,13vh),132px);margin:clamp(10px,2vh,20px) 0 clamp(12px,2.4vh,24px)}
+  .hero .lede{font-size:clamp(15px,2.3vh,18px)}
+  .hero .cta{margin-top:clamp(16px,3.4vh,32px)}
+  .featured{width:min(560px,100%,calc(100svh - var(--hdr) - var(--pad)*2 - 70px))}
+  .feat-name{margin-top:clamp(10px,1.6vh,16px)}
+  .wall-sec{padding-top:clamp(20px,4vh,64px)}
+  .wall-sec h2{font-size:clamp(40px,min(6.2vw,10vh),92px);margin-top:clamp(4px,1vh,12px)}
+  .wall-sec .sec-note{margin-top:clamp(6px,1.2vh,14px)}
+  .wall-head{margin-bottom:clamp(12px,2.4vh,30px)}
+  .wall{padding-top:0}
+  .bayrow{margin-top:clamp(18px,3.4vh,44px)}
+  .bay .slot{padding-top:clamp(10px,2vh,22px)}
+  .store,.checkout{min-height:calc(100vh - var(--hdr));min-height:calc(100svh - var(--hdr));padding-top:var(--pad);padding-bottom:var(--pad);align-items:center;align-content:center}
+  .store h2,.checkout h2{font-size:clamp(40px,min(6.2vw,11vh),92px)}
+  .store-copy p{font-size:clamp(15px,2.4vh,19px);margin-top:clamp(10px,1.8vh,20px)}
+  .store-copy p:first-of-type{margin-top:0}
+  .checkout{align-items:start}
+  .checkout form{margin-top:clamp(14px,2.6vh,30px);gap:clamp(8px,1.4vh,14px)}
+  .checkout input,.checkout textarea{padding:clamp(9px,1.5vh,14px) 15px}
+  .checkout textarea{min-height:clamp(70px,13vh,130px)}
+  .checkout .place{padding:clamp(12px,2vh,19px)}
+  .checkout .empty{margin-top:clamp(14px,2.6vh,30px);padding:clamp(16px,2.8vh,28px)}
+}
 @media(max-width:1200px){.bay-sign .full{display:none}.bay-sign .short{display:inline-block}}
 @media(max-width:1100px){.store,.checkout{grid-template-columns:1fr;gap:50px}}
 @media(max-width:900px){
