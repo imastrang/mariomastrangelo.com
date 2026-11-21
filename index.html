@@ -670,21 +670,21 @@ function shoeSVG(p){
   const L=splitName((p.name||p.brand).toUpperCase(),15);
   const brand=(p.brand||'').toUpperCase();
   return `<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs><linearGradient id="lsh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".32"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient><radialGradient id="gsg"><stop offset="0" stop-color="#111214" stop-opacity=".34"/><stop offset="1" stop-color="#111214" stop-opacity="0"/></radialGradient><linearGradient id="${id}f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#000" stop-opacity=".08"/></linearGradient></defs>
+  <defs><linearGradient id="lsh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".32"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient><linearGradient id="lsd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#111214" stop-opacity=".22"/><stop offset="1" stop-color="#111214" stop-opacity="0"/></linearGradient><radialGradient id="gsg"><stop offset="0" stop-color="#111214" stop-opacity=".34"/><stop offset="1" stop-color="#111214" stop-opacity="0"/></radialGradient><linearGradient id="${id}f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#000" stop-opacity=".08"/></linearGradient></defs>
   <ellipse class="gs" cx="150" cy="186" rx="146" ry="7" fill="url(#gsg)"/>
   <g class="body">
     <polygon points="10,93 250,93 290,62 50,62" fill="${shade(c,-.5)}"/>
     <polygon points="250,92 290,62 290,152 250,182" fill="${shade(c,-.28)}" stroke="${shade(c,-.28)}" stroke-width=".6" stroke-linejoin="round"/>
-    <rect x="10" y="92" width="240" height="90" fill="${c}"/><rect x="10" y="92" width="240" height="90" fill="url(#${id}f)"/>
+    <rect x="10" y="92" width="240" height="90" fill="${c}"/><rect x="10" y="92" width="240" height="90" fill="url(#${id}f)"/><rect x="10" y="92" width="240" height="11" fill="url(#lsd)"/>
         <rect x="142" y="104" width="98" height="66" fill="#f6f5f1"/>
     <text x="150" y="117" font-family="JetBrains Mono,monospace" font-size="6.5" letter-spacing=".6" fill="#6d727a">${esc(p.years||'Since 2019')}</text>
     ${L.map((t,k)=>`<text x="150" y="${130+k*10}" font-family="Archivo,sans-serif" font-weight="800" font-size="8.6" fill="#111214"${t.length>13?' textLength="82" lengthAdjust="spacingAndGlyphs"':''}>${esc(t)}</text>`).join('')}
     <g fill="#111214">${bars(seed,150,232,152,12)}</g>
   </g>
   <g class="lid">
-    <polygon points="10,52.4 250,52.4 290,22 50,22" fill="${shade(c,.14)}"/>
-    <polygon points="250,52 290,22 290,66 250,96" fill="${shade(c,-.18)}" stroke="${shade(c,-.18)}" stroke-width=".6" stroke-linejoin="round"/>
-    <rect x="10" y="52" width="240" height="44" fill="${shade(c,.04)}"/>
+    <polygon points="6,52.4 254,52.4 294,22 46,22" fill="${shade(c,.14)}"/>
+    <polygon points="254,52 294,22 294,66 254,96" fill="${shade(c,-.18)}" stroke="${shade(c,-.18)}" stroke-width=".6" stroke-linejoin="round"/>
+    <rect x="6" y="52" width="248" height="44" fill="${shade(c,.04)}"/>
 
     <text x="20" y="78" font-family="Archivo,sans-serif" font-weight="900" font-stretch="110%" font-size="12" letter-spacing="2.6" fill="${B.ink}" opacity=".92"${brand.length>16&&!brand.startsWith('FOOTWEAR IND')?' textLength="200" lengthAdjust="spacingAndGlyphs"':''}>${esc(brand.startsWith('FOOTWEAR IND')?'FOOTWEAR IND. TN':brand)}</text>
   </g></svg>`;
