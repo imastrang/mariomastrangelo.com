@@ -253,6 +253,7 @@ footer{padding:34px 6vw;display:flex;justify-content:space-between;flex-wrap:wra
 .slot:hover .shoe svg .lid,.slot:focus-visible .shoe svg .lid{transform:translateY(-12px)}
 .slot .shoe svg .body{transition:transform .35s ease}
 .ledge{margin-top:-6px}
+.bay .shoe{z-index:1}
 .feat-tile{background:var(--white)}
 .feat-tile .feat-float{width:78%}
 .featured:hover .feat-shoe{transform:none}
@@ -330,7 +331,6 @@ section{scroll-margin-top:63px}
 .feat-float,.stage .flt{will-change:transform;backface-visibility:hidden;transform:translateZ(0)}
 .shoe svg .lsh,.feat-shoe svg .lsh{transition:opacity .25s ease}
 .slot:hover .shoe svg .lsh,.slot:focus-visible .shoe svg .lsh,.featured:hover .feat-shoe svg .lsh,.featured:focus-visible .feat-shoe svg .lsh,.stage .big svg .lsh{opacity:0}
-.featured:hover .feat-float,.featured:focus-visible .feat-float,.featured:hover .ground{animation-play-state:paused}
 @media(max-width:1200px){.bay-sign .full{display:none}.bay-sign .short{display:inline-block}}
 @media(max-width:1100px){.store,.checkout{grid-template-columns:1fr;gap:50px}}
 @media(max-width:900px){
@@ -682,9 +682,9 @@ function shoeSVG(p){
     <g fill="#111214">${bars(seed,150,232,152,12)}</g>
   </g>
   <g class="lid">
-    <polygon points="6,52 254,52 294,22 46,22" fill="${shade(c,.14)}" stroke="${shade(c,.14)}" stroke-width=".6" stroke-linejoin="round"/>
-    <polygon points="254,52 294,22 294,66 254,96" fill="${shade(c,-.18)}" stroke="${shade(c,-.18)}" stroke-width=".6" stroke-linejoin="round"/>
-    <rect x="6" y="52" width="248" height="44" fill="${shade(c,.04)}"/>
+    <polygon points="10,52.4 250,52.4 290,22 50,22" fill="${shade(c,.14)}"/>
+    <polygon points="250,52 290,22 290,66 250,96" fill="${shade(c,-.18)}" stroke="${shade(c,-.18)}" stroke-width=".6" stroke-linejoin="round"/>
+    <rect x="10" y="52" width="240" height="44" fill="${shade(c,.04)}"/>
 
     <text x="20" y="78" font-family="Archivo,sans-serif" font-weight="900" font-stretch="110%" font-size="12" letter-spacing="2.6" fill="${B.ink}" opacity=".92"${brand.length>16&&!brand.startsWith('FOOTWEAR IND')?' textLength="200" lengthAdjust="spacingAndGlyphs"':''}>${esc(brand.startsWith('FOOTWEAR IND')?'FOOTWEAR IND. TN':brand)}</text>
   </g></svg>`;
