@@ -665,7 +665,8 @@ function shoeSVG(p){
   <defs><linearGradient id="${id}f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#000" stop-opacity=".08"/></linearGradient></defs>
   <ellipse cx="150" cy="186" rx="140" ry="7" fill="#111214" opacity=".10"/>
   <g class="body">
-    <polygon points="250,92 290,64 290,154 250,182" fill="${shade(c,-.28)}"/>
+    <polygon points="10,92 250,92 290,62 50,62" fill="${shade(c,-.5)}"/>
+    <polygon points="250,92 290,62 290,152 250,182" fill="${shade(c,-.28)}" stroke="${shade(c,-.28)}" stroke-width=".6" stroke-linejoin="round"/>
     <rect x="10" y="92" width="240" height="90" fill="${c}"/><rect x="10" y="92" width="240" height="90" fill="url(#${id}f)"/>
     <rect x="142" y="104" width="98" height="66" fill="#f6f5f1"/>
     <text x="150" y="117" font-family="JetBrains Mono,monospace" font-size="6.5" letter-spacing=".6" fill="#6d727a">${esc(p.years||'Since 2019')}</text>
@@ -673,9 +674,10 @@ function shoeSVG(p){
     <g fill="#111214">${bars(seed,150,232,152,12)}</g>
   </g>
   <g class="lid">
-    <polygon points="6,52 254,52 294,22 46,22" fill="${shade(c,.14)}"/>
-    <polygon points="254,52 294,22 294,64 254,94" fill="${shade(c,-.18)}"/>
+    <polygon points="6,52 254,52 294,22 46,22" fill="${shade(c,.14)}" stroke="${shade(c,.14)}" stroke-width=".6" stroke-linejoin="round"/>
+    <polygon points="254,52 294,22 294,64 254,94" fill="${shade(c,-.18)}" stroke="${shade(c,-.18)}" stroke-width=".6" stroke-linejoin="round"/>
     <rect x="6" y="52" width="248" height="42" fill="${shade(c,.04)}"/>
+    <path d="M6,94 H254 L294,64" fill="none" stroke="#000" stroke-opacity=".28" stroke-width="1"/>
     <text x="20" y="78" font-family="Archivo,sans-serif" font-weight="900" font-stretch="110%" font-size="12" letter-spacing="2.6" fill="${B.ink}" opacity=".92"${brand.length>16&&!brand.startsWith('FOOTWEAR IND')?' textLength="200" lengthAdjust="spacingAndGlyphs"':''}>${esc(brand.startsWith('FOOTWEAR IND')?'FOOTWEAR IND. TN':brand)}</text>
   </g></svg>`;
 }
