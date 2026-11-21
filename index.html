@@ -328,6 +328,9 @@ section{scroll-margin-top:63px}
 .stage::after{animation:breathe 6s ease-in-out infinite}
 @keyframes breathe{0%,100%{transform:scaleX(1);opacity:1}50%{transform:scaleX(.86);opacity:.6}}
 .feat-float,.stage .flt{will-change:transform;backface-visibility:hidden;transform:translateZ(0)}
+.shoe svg .lsh,.feat-shoe svg .lsh{transition:opacity .25s ease}
+.slot:hover .shoe svg .lsh,.slot:focus-visible .shoe svg .lsh,.featured:hover .feat-shoe svg .lsh,.featured:focus-visible .feat-shoe svg .lsh,.stage .big svg .lsh{opacity:0}
+.featured:hover .feat-float,.featured:focus-visible .feat-float,.featured:hover .ground{animation-play-state:paused}
 @media(max-width:1200px){.bay-sign .full{display:none}.bay-sign .short{display:inline-block}}
 @media(max-width:1100px){.store,.checkout{grid-template-columns:1fr;gap:50px}}
 @media(max-width:900px){
@@ -670,10 +673,11 @@ function shoeSVG(p){
   <defs><linearGradient id="lsh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".32"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient><radialGradient id="gsg"><stop offset="0" stop-color="#111214" stop-opacity=".28"/><stop offset="1" stop-color="#111214" stop-opacity="0"/></radialGradient><linearGradient id="${id}f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#000" stop-opacity=".08"/></linearGradient></defs>
   <ellipse class="gs" cx="148" cy="183" rx="142" ry="5" fill="url(#gsg)"/>
   <g class="body">
-    <polygon points="10,92 250,92 290,62 50,62" fill="${shade(c,-.5)}"/>
+    <polygon points="10,94 250,94 290,62 50,62" fill="${shade(c,-.5)}"/>
     <polygon points="250,92 290,62 290,152 250,182" fill="${shade(c,-.28)}" stroke="${shade(c,-.28)}" stroke-width=".6" stroke-linejoin="round"/>
     <rect x="10" y="92" width="240" height="90" fill="${c}"/><rect x="10" y="92" width="240" height="90" fill="url(#${id}f)"/>
-    <rect x="10" y="92" width="240" height="12" fill="url(#lsh)"/>
+    <rect class="lsh" x="10" y="94" width="240" height="12" fill="url(#lsh)"/>
+    <rect x="10" y="91.5" width="240" height="3" fill="${shade(c,.10)}"/>
     <rect x="142" y="104" width="98" height="66" fill="#f6f5f1"/>
     <text x="150" y="117" font-family="JetBrains Mono,monospace" font-size="6.5" letter-spacing=".6" fill="#6d727a">${esc(p.years||'Since 2019')}</text>
     ${L.map((t,k)=>`<text x="150" y="${130+k*10}" font-family="Archivo,sans-serif" font-weight="800" font-size="8.6" fill="#111214"${t.length>13?' textLength="82" lengthAdjust="spacingAndGlyphs"':''}>${esc(t)}</text>`).join('')}
