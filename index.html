@@ -670,8 +670,8 @@ function shoeSVG(p){
   const L=splitName((p.name||p.brand).toUpperCase(),15);
   const brand=(p.brand||'').toUpperCase();
   return `<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs><linearGradient id="lsh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".32"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient><radialGradient id="gsg"><stop offset="0" stop-color="#111214" stop-opacity=".28"/><stop offset="1" stop-color="#111214" stop-opacity="0"/></radialGradient><linearGradient id="${id}f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#000" stop-opacity=".08"/></linearGradient></defs>
-  <ellipse class="gs" cx="148" cy="183" rx="142" ry="5" fill="url(#gsg)"/>
+  <defs><linearGradient id="lsh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".32"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient><radialGradient id="gsg"><stop offset="0" stop-color="#111214" stop-opacity=".34"/><stop offset="1" stop-color="#111214" stop-opacity="0"/></radialGradient><linearGradient id="${id}f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#000" stop-opacity=".08"/></linearGradient></defs>
+  <ellipse class="gs" cx="150" cy="186" rx="146" ry="7" fill="url(#gsg)"/>
   <g class="body">
     <polygon points="10,93 250,93 290,62 50,62" fill="${shade(c,-.5)}"/>
     <polygon points="250,92 290,62 290,152 250,182" fill="${shade(c,-.28)}" stroke="${shade(c,-.28)}" stroke-width=".6" stroke-linejoin="round"/>
